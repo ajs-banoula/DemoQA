@@ -11,6 +11,5 @@ public class BrowserWindowTest extends Base {
     BrowserWindows bw = new BrowserWindows(driver);
     bw.openAlerts();
     bw.openBrowserTab();
-
 }
 }

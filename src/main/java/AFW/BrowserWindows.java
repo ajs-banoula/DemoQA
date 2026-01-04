@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class BrowserWindows {
@@ -20,7 +20,6 @@ public class BrowserWindows {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         je = (JavascriptExecutor)driver;
 
-
     }
 
     @FindBy(xpath = "//h5[text() = 'Alerts, Frame & Windows']")
@@ -29,28 +28,28 @@ public class BrowserWindows {
     @FindBy(xpath = "//ul[@class='menu-list']//span[text() = 'Browser Windows']" )
     private WebElement browserTab;
 
-    @FindBy(xpath = " //idframe[@id= 'google_ads_iframe']")
-    private WebElement ad;
+    public void scrollClick(WebElement element) {
+        je.executeScript("arguments[0].scrollIntoView({block:'center'});"
+                ,element);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
 
-    public void removeifAdpresent() {
+    public void removeAd() {
 
         try {
-            je.executeScript("arguments[0].style.display='none';", ad);
+            je.executeScript(
+                    "document.querySelectorAll('iframe').forEach(e -> e.remove());");
         } catch (Exception e) {
 
             System.out.println("Ad not found: Continuing....");
         }
-
     }
     public void openAlerts() {
-
-        removeifAdpresent();
-
-        afw.click();
+        removeAd();
+        scrollClick(afw);
     }
     public void openBrowserTab () {
-        browserTab.click();
-
+        scrollClick(browserTab);
     }
-
 }
