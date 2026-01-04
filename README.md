@@ -1,10 +1,34 @@
-#Demo QA Automation Project.
-This repository contains automated test scripts developed using Java, Selenium WebDriver, and TestNG, implemented within a Maven-based automation framework.
+# DemoQA Automation Project
 
-The project follows the standard Maven directory structure, segregating source code into src/main/java and src/test/java.
+## 📌 Project Overview
+This repository contains automated test scripts developed using **Java**, **Selenium WebDriver**, and **TestNG**, implemented within a **Maven-based automation framework**.  
+The project is designed to demonstrate a structured, maintainable, and scalable approach to test automation following industry best practices.
 
-The src/main/java module encapsulates business logic, reusable components, and utility classes, which define the core automation workflows and interaction logic.
+---
 
-The src/test/java module contains TestNG test classes responsible for test orchestration, execution, and validation of application functionality by invoking the corresponding logical components.
+## 🛠 Tech Stack
+- **Programming Language:** Java  
+- **Automation Tool:** Selenium WebDriver  
+- **Test Framework:** TestNG  
+- **Build & Dependency Management:** Maven  
+- **IDE:** IntelliJ IDEA  
 
-Each logical class has an associated dedicated test class, ensuring a clear separation of concerns, improved maintainability, scalability, and adherence to automation framework best practices.
+---
+
+## 📁 Project Structure
+The framework follows the standard Maven directory layout with a clear separation of concerns:
+
+```text
+src
+ ├── main
+ │   └── java
+ │       └── logical
+ │           ├── BrokenLink.java
+ │           ├── UploadDownload.java
+ │           └── ...
+ └── test
+     └── java
+         └── tests
+             ├── BrokenLinkTest.java
+             ├── UploadDownloadTest.java
+             └── ...
